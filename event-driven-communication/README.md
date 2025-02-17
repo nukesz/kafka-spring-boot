@@ -1,0 +1,22 @@
+# Event Driver Communication
+
+This is our "Hello Kafka" example where we learn more about the basic topics in kafka. I tried to document and describe all the classes and methods, so start in the [kafka](src/main/java/com/github/nukesz/kafka) folder.
+
+```sh
+# Start kafka
+docker-compose up -d
+
+# Run the spring-boot application
+../gradlew :event-driven-communication:bootRun
+
+# Send a message
+curl -XPOST "http://localhost:8080/kafka/send?message=HelloKafka"
+
+# Verify the message in the log
+Received Message: HelloKafka
+
+# Feel free to run multiple instances on different ports
+# Question: Can you find out why only one listener receives the message?
+../gradlew :event-driven-communication:bootRun --args='--server.port=8081'
+../gradlew :event-driven-communication:bootRun --args='--server.port=8082'
+```
