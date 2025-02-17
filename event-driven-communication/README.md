@@ -1,6 +1,6 @@
 # Event Driver Communication
 
-This is our "Hello Kafka" example where we learn more about the basic topics in kafka. I tried to document and describe all the classes and methods, so start in the [kafka](src/main/java/com/github/nukesz/kafka) folder.
+This is our "Hello Kafka" example where we learn more about the basic topics in kafka. I tried to document and describe the most interesting classes and methods, so please start in the [kafka](src/main/java/com/github/nukesz/kafka) folder.
 
 ```sh
 # Start kafka
