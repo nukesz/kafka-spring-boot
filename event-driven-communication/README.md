@@ -15,8 +15,7 @@ curl -XPOST "http://localhost:8080/kafka/send?message=HelloKafka"
 # Verify the message in the log
 Received Message: HelloKafka
 
-# Feel free to run multiple instances on different ports
-# Question: Can you find out why only one listener receives the message?
+# Feel free to run multiple instances on different ports for load balancing
 ../gradlew :event-driven-communication:bootRun --args='--server.port=8081'
 ../gradlew :event-driven-communication:bootRun --args='--server.port=8082'
 ```
