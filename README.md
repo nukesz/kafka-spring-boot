@@ -10,5 +10,6 @@ This repository is designed as a **practical learning project** for understandin
 ## **Chapters**
 1. **Event-Driven Communication** - Setting up a simple producer and consumer in Spring Boot.
 2. **Reliable Messaging** - Handling errors and retries.
+3. **Scaling Consumers** – Understanding Partitions and Consumer Groups.
 
 This repository is a work in progress. Contributions and suggestions are welcome!
