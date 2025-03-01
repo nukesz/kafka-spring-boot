@@ -46,3 +46,21 @@ Goal:
 - `AAPL` messages always go to the same partition (ordering guaranteed).
 - Consumers share the workload across partitions.
 - If **Consumer #2 fails**, Kafka will **re-balance** and assign `GOOGL`’s partition to another consumer.
+
+### How to run and test
+1. Start Kafka using Docker:
+   ```sh
+   docker-compose up -d
+   ```
+2. Start 3 instances of the application (one for each partition):
+   ```sh
+   ../gradlew :scaling-consumers:bootRun --args='--server.port=8080'
+   ../gradlew :scaling-consumers:bootRun --args='--server.port=8081'
+   ../gradlew :scaling-consumers:bootRun --args='--server.port=8082'
+   ```
+3. Send stock prices
+   ```sh
+   curl -XPOST "http://localhost:8080/kafka/send"
+   ```
+4. Verify the messages in the log.
+5. Stop one application and verify how Kafka rebalances and redistributes the partitions among the remaining consumers.
